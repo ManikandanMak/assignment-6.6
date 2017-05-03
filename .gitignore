@@ -1,0 +1,28 @@
+1) FIFO Scheduler :
+                  >  FIFO Scheduler : The FIFO Scheduler places applications in a queue and runs them in the order of submission .
+                     Capacity Scheduler : With the Capacity Scheduler, a separate dedicated queue allows the small job to start as soon as it is submitted
+                  
+                  >  FIFO Scheduler : Requests for the first application in the queue are allocated first. Once its requests have been satisfied, the next application in the queue is served, and so on
+                     Capacity Scheduler : This is at the cost of overall cluster utilization since the queue capacity is reserved for jobs in that queue.
+                  
+                  >  FIFO Scheduler : The FIFO Scheduler has the merit of being simple to understand and not needing any configuration, but it’s not suitable for shared clusters
+                     Capacity Scheduler : If queues are not designed or used properly, some queues may be overloaded while some may be underutilised.
+                  
+                  >  FIFO Scheduler : Large applications will use all the resources in a cluster, so each application has to wait its turn.
+                     On a shared cluster, it is better to use the Capacity Scheduler or the Fair Scheduler.
+                     Capacity Scheduler : Large job finishes late when compared with using the FIFO Scheduler
+                  
+2)  Limitations of Hadoop 1.x and how they were overcome in hadoop 2.x
+Limitations of Hadoop 1.x : 
+
+> JobTracker keeps track of resource utilization and job monitoring.
+> Suited for maximum of 4000 nodes and 40000 tasks.
+> TaskTracker is configured with static slots. Moreover, a map tasks can not run on reduce slot. So cluster utilization is low.
+>  Supports only MapReduce processing model.
+
+Hadoop 2.x Overcomes :
+
+> Resource Utilization is taken care by ResourceManager and NodeManager, whereas job monitoring is taken care by ApplicationMaster.
+> It can scale up to 10000 nodes and 100000 tasks.
+> Resources are dynamic and finegrained. This leads to better cluster utilization.
+> Supports processing models other than Map Reduce.
